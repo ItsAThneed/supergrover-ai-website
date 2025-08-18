@@ -1,0 +1,522 @@
+/* ====================================
+   Responsive Design Styles
+   ==================================== */
+
+/* ====================================
+   Extra Large Devices (1400px and up)
+   ==================================== */
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+}
+
+/* ====================================
+   Large Devices (992px to 1399px)
+   ==================================== */
+
+@media (max-width: 1399.98px) {
+    .hero-content h1 {
+        font-size: 3.2rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .executive-photo svg {
+        max-width: 350px;
+    }
+}
+
+/* ====================================
+   Medium Devices (768px to 991px)
+   ==================================== */
+
+@media (max-width: 991.98px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+        text-align: center;
+    }
+    
+    .hero-content h2 {
+        text-align: center;
+        font-size: 1.3rem;
+    }
+    
+    .hero-description {
+        text-align: center;
+        max-width: 100%;
+        font-size: 1.1rem;
+    }
+    
+    .hero-actions {
+        text-align: center;
+    }
+    
+    .executive-photo svg {
+        max-width: 300px;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    /* Timeline adjustments */
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 4rem;
+        padding-right: 1rem;
+    }
+    
+    .timeline-marker {
+        left: 20px !important;
+    }
+    
+    .navbar-nav {
+        text-align: center;
+        padding-top: 1rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem !important;
+    }
+}
+
+/* ====================================
+   Small Devices (576px to 767px)
+   ==================================== */
+
+@media (max-width: 767.98px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-actions .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero-actions .btn:last-child {
+        margin-bottom: 0;
+    }
+    
+    .executive-photo svg {
+        max-width: 250px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-divider {
+        width: 50px;
+        height: 3px;
+    }
+    
+    /* Achievement cards stack */
+    .achievement-card {
+        margin-bottom: 1.5rem;
+        padding: 2rem 1.5rem;
+    }
+    
+    .achievement-number {
+        font-size: 2.5rem;
+    }
+    
+    .achievement-icon {
+        font-size: 2.5rem;
+    }
+    
+    /* Philosophy cards */
+    .philosophy-card {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .philosophy-icon {
+        font-size: 3rem;
+    }
+    
+    /* Timeline mobile adjustments */
+    .timeline-item {
+        padding-left: 3rem;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline-content {
+        padding: 1.5rem;
+    }
+    
+    /* Contact section */
+    .contact-methods {
+        text-align: center;
+    }
+    
+    .contact-link {
+        display: block;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Footer */
+    .social-links {
+        text-align: center !important;
+        margin-top: 1rem;
+    }
+}
+
+/* ====================================
+   Extra Small Devices (up to 575px)
+   ==================================== */
+
+@media (max-width: 575.98px) {
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+    }
+    
+    .executive-photo svg {
+        max-width: 200px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    
+    /* Navbar brand smaller */
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+    
+    /* Achievement cards smaller padding */
+    .achievement-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .achievement-number {
+        font-size: 2.2rem;
+    }
+    
+    .achievement-icon {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .achievement-text {
+        font-size: 0.8rem;
+    }
+    
+    /* Timeline very mobile */
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 2.5rem;
+    }
+    
+    .timeline-marker {
+        left: 10px !important;
+        width: 16px;
+        height: 16px;
+    }
+    
+    .timeline-content {
+        padding: 1.2rem;
+    }
+    
+    .timeline-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .timeline-content h5 {
+        font-size: 1rem;
+    }
+    
+    /* Philosophy cards compact */
+    .philosophy-card {
+        padding: 1.2rem;
+    }
+    
+    .philosophy-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .philosophy-card h4 {
+        font-size: 1.2rem;
+    }
+    
+    /* Contact section mobile */
+    .contact-info .lead {
+        font-size: 1rem;
+    }
+    
+    .contact-link {
+        font-size: 0.9rem;
+        padding: 0.5rem 0;
+    }
+    
+    .contact-link i {
+        font-size: 1rem;
+    }
+}
+
+/* ====================================
+   Very Small Devices (320px to 479px)
+   ==================================== */
+
+@media (max-width: 479.98px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1rem;
+    }
+    
+    .executive-photo svg {
+        max-width: 180px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .achievement-card {
+        padding: 1.2rem 0.8rem;
+    }
+    
+    .achievement-number {
+        font-size: 2rem;
+    }
+    
+    .philosophy-card {
+        padding: 1rem;
+    }
+    
+    .timeline-content {
+        padding: 1rem;
+    }
+    
+    .btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+/* ====================================
+   Landscape Mobile Adjustments
+   ==================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+        padding: 2rem 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-content h2 {
+        margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+        margin-bottom: 1.5rem;
+    }
+    
+    .executive-photo svg {
+        max-width: 200px;
+    }
+    
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+/* ====================================
+   Touch Device Optimizations
+   ==================================== */
+
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .nav-link,
+    .contact-link,
+    .social-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .achievement-card:hover,
+    .timeline-content:hover,
+    .philosophy-card:hover {
+        transform: none;
+    }
+    
+    .executive-photo:hover {
+        transform: none;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 1rem !important;
+    }
+}
+
+/* ====================================
+   High DPI Display Optimizations
+   ==================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .section-divider {
+        height: 3px;
+    }
+    
+    .timeline::before {
+        width: 3px;
+    }
+    
+    .timeline-marker {
+        border-width: 3px;
+    }
+}
+
+/* ====================================
+   Dark Mode Support (Future Ready)
+   ==================================== */
+
+@media (prefers-color-scheme: dark) {
+    /* This is prepared for future dark mode implementation */
+    /* Currently maintaining light theme for professional appearance */
+}
+
+/* ====================================
+   Reduced Motion Support
+   ==================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .fade-in,
+    .fade-in-delay,
+    .fade-in-on-scroll {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+    
+    .scroll-indicator {
+        animation: none;
+    }
+}
+
+/* ====================================
+   Print Media Responsive Adjustments
+   ==================================== */
+
+@media print {
+    @page {
+        margin: 0.5in;
+    }
+    
+    .hero-section {
+        background: none !important;
+        min-height: auto !important;
+    }
+    
+    .executive-photo svg {
+        max-width: 200px;
+        max-height: 250px;
+    }
+    
+    .timeline::before {
+        display: none;
+    }
+    
+    .timeline-marker {
+        display: none;
+    }
+    
+    .timeline-item {
+        width: 100% !important;
+        left: 0 !important;
+        padding: 0 !important;
+        margin-bottom: 1.5rem;
+        page-break-inside: avoid;
+    }
+    
+    .achievement-card,
+    .philosophy-card {
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+    
+    .section-title {
+        color: #000 !important;
+    }
+    
+    .text-white {
+        color: #000 !important;
+    }
+    
+    .bg-dark,
+    .bg-darker {
+        background: #fff !important;
+        color: #000 !important;
+    }
+}
