@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Grover - Contact</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #f0f0f0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Styling for gradient text effects */
+        .gradient-text {
+            background: linear-gradient(90deg, #a5b4fc, #f0abfc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Glassmorphism card effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+        }
+        /* Form input styles */
+        .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            color: #f0f0f0;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #a5b4fc;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.1);
+        }
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #f0f0f0;
+        }
+        /* Honeypot field (hidden from users, visible to bots) */
+        .honeypot {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 opacity-0 -translate-y-full">
+        <div class="glass-card mx-4 my-4 px-6 py-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <!-- Logo and Brand (Desktop) -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="supergrover_transparent_large.png" alt="SuperGrover Logo" class="w-8 h-8">
+                    <span class="hidden md:block text-white font-semibold text-lg">Jonathan Grover</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-medium" data-page="home">Home</a>
+                    <a href="experiences.html" class="nav-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-medium" data-page="experiences">Career Snapshot</a>
+                    <a href="thought-leadership.html" class="nav-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-medium" data-page="thought-leadership">Thought Leadership</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-medium" data-page="contact">Contact</a>
+                </div>
+
+                <!-- Mobile Hamburger Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+                    <div class="hamburger-icon w-6 h-5 flex flex-col justify-between">
+                        <span class="hamburger-line block h-0.5 w-full bg-white transition-all duration-300"></span>
+                        <span class="hamburger-line block h-0.5 w-full bg-white transition-all duration-300"></span>
+                        <span class="hamburger-line block h-0.5 w-full bg-white transition-all duration-300"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-black bg-opacity-95 backdrop-blur-lg transform translate-x-full transition-transform duration-500 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="index.html" class="mobile-nav-link text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-semibold" data-page="home">Home</a>
+            <a href="experiences.html" class="mobile-nav-link text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-semibold" data-page="experiences">Career Snapshot</a>
+            <a href="thought-leadership.html" class="mobile-nav-link text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-semibold" data-page="thought-leadership">Thought Leadership</a>
+            <a href="contact.html" class="mobile-nav-link text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-semibold" data-page="contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="py-24 px-4 min-h-screen flex items-center">
+        <div class="max-w-2xl mx-auto w-full">
+            <div class="text-center mb-12 fade-in-up">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Get in touch.</h1>
+                <p class="text-xl text-gray-400">Let's explore how we can work together.</p>
+            </div>
+
+            <div class="glass-card p-8 md:p-12 fade-in-up">
+                <!-- Success Message (hidden by default) -->
+                <div id="success-message" class="hidden mb-8 p-6 bg-green-500/20 border border-green-500/50 rounded-lg">
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <h3 class="text-green-400 font-semibold mb-1">Message sent successfully!</h3>
+                            <p class="text-green-300">Thanks for reaching out. I'll get back to you soon.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error Message (hidden by default) -->
+                <div id="error-message" class="hidden mb-8 p-6 bg-red-500/20 border border-red-500/50 rounded-lg">
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 text-red-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <h3 class="text-red-400 font-semibold mb-1">Uh Oh, we couldn't send your message.</h3>
+                            <p class="text-red-300">As an alternative, please reach out on <a href="https://www.linkedin.com/in/connectwithjongrover" target="_blank" rel="noopener noreferrer" class="underline hover:text-red-200">LinkedIn</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="space-y-6">
+                    <!-- Honeypot field (hidden from users) -->
+                    <div class="honeypot">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="form-label">Name <span class="text-red-400">*</span></label>
+                        <input type="text" id="name" name="name" required class="form-input" placeholder="Your name">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="form-label">Email <span class="text-red-400">*</span></label>
+                        <input type="email" id="email" name="email" required class="form-input" placeholder="your.email@example.com">
+                    </div>
+
+                    <!-- Phone -->
+                    <div>
+                        <label for="phone" class="form-label">Phone <span class="text-red-400">*</span></label>
+                        <input type="tel" id="phone" name="phone" required class="form-input" placeholder="+1 (555) 123-4567">
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label for="message" class="form-label">Message <span class="text-red-400">*</span></label>
+                        <textarea id="message" name="message" required rows="6" class="form-input resize-none" placeholder="Tell me about your project or how we can work together..."></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit" id="submit-button" class="w-full bg-gradient-to-r from-indigo-500 to-fuchsia-500 hover:from-indigo-600 hover:to-fuchsia-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
+                            <span id="button-text">Send Message</span>
+                            <span id="button-loading" class="hidden">
+                                <svg class="animate-spin inline-block w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Sending...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('contact-form');
+            const submitButton = document.getElementById('submit-button');
+            const buttonText = document.getElementById('button-text');
+            const buttonLoading = document.getElementById('button-loading');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+
+            // Rate limiting (prevent spam)
+            const RATE_LIMIT_KEY = 'lastSubmissionTime';
+            const RATE_LIMIT_DURATION = 60000; // 1 minute
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Hide previous messages
+                successMessage.classList.add('hidden');
+                errorMessage.classList.add('hidden');
+
+                // Check honeypot
+                const honeypot = document.getElementById('website').value;
+                if (honeypot) {
+                    // Bot detected, silently fail
+                    console.log('Bot detected');
+                    return;
+                }
+
+                // Check rate limiting
+                const lastSubmission = localStorage.getItem(RATE_LIMIT_KEY);
+                const now = Date.now();
+                if (lastSubmission && (now - parseInt(lastSubmission)) < RATE_LIMIT_DURATION) {
+                    errorMessage.classList.remove('hidden');
+                    errorMessage.querySelector('p').textContent = 'Please wait a minute before submitting again.';
+                    return;
+                }
+
+                // Get form data
+                const formData = {
+                    name: document.getElementById('name').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    phone: document.getElementById('phone').value.trim(),
+                    message: document.getElementById('message').value.trim()
+                };
+
+                // Validate
+                if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+                    errorMessage.classList.remove('hidden');
+                    errorMessage.querySelector('p').textContent = 'Please fill in all required fields.';
+                    return;
+                }
+
+                // Show loading state
+                submitButton.disabled = true;
+                buttonText.classList.add('hidden');
+                buttonLoading.classList.remove('hidden');
+
+                try {
+                    // Using Formspree for email handling (free tier: 50 submissions/month)
+                    // Alternative: Set up your own backend endpoint
+                    const response = await fetch('https://formspree.io/f/xjkarqgr', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            ...formData,
+                            _replyto: formData.email,
+                            _subject: `New contact form submission from ${formData.name}`
+                        })
+                    });
+
+                    if (response.ok) {
+                        // Success
+                        successMessage.classList.remove('hidden');
+                        form.reset();
+                        localStorage.setItem(RATE_LIMIT_KEY, now.toString());
+
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    errorMessage.classList.remove('hidden');
+                } finally {
+                    // Reset button state
+                    submitButton.disabled = false;
+                    buttonText.classList.remove('hidden');
+                    buttonLoading.classList.add('hidden');
+                }
+            });
+
+            // --- Intersection Observer for fade-in animations ---
+            const animatedElements = document.querySelectorAll('.fade-in-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => observer.observe(el));
+
+            // --- Navigation Bar Functionality ---
+            const navbar = document.getElementById('navbar');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerLines = document.querySelectorAll('.hamburger-line');
+            let navbarVisible = false;
+
+            // Scroll behavior for navbar (homepage only)
+            const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
+
+            if (isHomepage) {
+                // On homepage: show navbar on scroll
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 100 && !navbarVisible) {
+                        navbar.classList.remove('opacity-0', '-translate-y-full');
+                        navbar.classList.add('opacity-100', 'translate-y-0');
+                        navbarVisible = true;
+                    }
+                });
+            } else {
+                // On other pages: show navbar immediately
+                navbar.classList.remove('opacity-0', '-translate-y-full');
+                navbar.classList.add('opacity-100', 'translate-y-0');
+                navbarVisible = true;
+            }
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                const isOpen = !mobileMenu.classList.contains('translate-x-full');
+
+                if (isOpen) {
+                    // Close menu
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileMenu.classList.remove('translate-x-0');
+                    document.body.style.overflow = '';
+
+                    // Transform X back to hamburger
+                    hamburgerLines[0].style.transform = '';
+                    hamburgerLines[1].style.opacity = '';
+                    hamburgerLines[2].style.transform = '';
+                } else {
+                    // Open menu
+                    mobileMenu.classList.remove('translate-x-full');
+                    mobileMenu.classList.add('translate-x-0');
+                    document.body.style.overflow = 'hidden';
+
+                    // Transform hamburger to X
+                    hamburgerLines[0].style.transform = 'rotate(45deg) translateY(9px)';
+                    hamburgerLines[1].style.opacity = '0';
+                    hamburgerLines[2].style.transform = 'rotate(-45deg) translateY(-9px)';
+                }
+            });
+
+            // Close mobile menu when clicking a link
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileMenu.classList.remove('translate-x-0');
+                    document.body.style.overflow = '';
+
+                    hamburgerLines[0].style.transform = '';
+                    hamburgerLines[1].style.opacity = '';
+                    hamburgerLines[2].style.transform = '';
+                });
+            });
+
+            // Set active page link with gradient
+            const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('data-page');
+                if (linkPage === currentPage || (currentPage === 'index' && linkPage === 'home')) {
+                    link.classList.remove('text-white');
+                    link.classList.add('gradient-text');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
