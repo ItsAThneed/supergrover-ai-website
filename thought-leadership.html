@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Grover - Thought Leadership</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #f0f0f0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Styling for gradient text effects */
+        .gradient-text {
+            background: linear-gradient(90deg, #a5b4fc, #f0abfc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Glassmorphism card effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+        }
+        /* Thought leadership card styles */
+        .thought-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .thought-card:hover {
+            box-shadow: 0 0 30px rgba(165, 180, 252, 0.4);
+            transform: translateY(-5px);
+            border-color: rgba(165, 180, 252, 0.3);
+        }
+        .thought-card-image-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+            border-radius: 0.75rem 0.75rem 0 0;
+        }
+        .thought-card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .featured-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            padding: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        .featured-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .read-article-link {
+            color: #a5b4fc;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .read-article-link:hover {
+            color: #c4b5fd;
+            gap: 0.75rem;
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Skeleton loader styles */
+        .skeleton-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+        }
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .skeleton-image {
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 0.75rem 0.75rem 0 0;
+        }
+        .skeleton-text {
+            height: 1rem;
+            border-radius: 0.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .skeleton-title {
+            height: 1.5rem;
+            width: 80%;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 opacity-0 -translate-y-full">
+        <div class="glass-card mx-4 my-4 px-6 py-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <!-- Logo and Brand (Desktop) -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="supergrover_transparent_large.png" alt="SuperGrover Logo" class="w-8 h-8">
+                    <span class="hidden md:block text-white font-semibold text-lg">Jonathan Grover</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-medium" data-page="home">Home</a>
+                    <a href="experiences.html" class="nav-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-medium" data-page="experiences">Career Snapshot</a>
+                    <a href="thought-leadership.html" class="nav-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-medium" data-page="thought-leadership">Thought Leadership</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-medium" data-page="contact">Contact</a>
+                </div>
+
+                <!-- Mobile Hamburger Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+                    <div class="hamburger-icon w-6 h-5 flex flex-col justify-between">
+                        <span class="hamburger-line block h-0.5 w-full bg-white transition-all duration-300"></span>
+                        <span class="hamburger-line block h-0.5 w-full bg-white transition-all duration-300"></span>
+                        <span class="hamburger-line block h-0.5 w-full bg-white transition-all duration-300"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-black bg-opacity-95 backdrop-blur-lg transform translate-x-full transition-transform duration-500 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="index.html" class="mobile-nav-link text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-semibold" data-page="home">Home</a>
+            <a href="experiences.html" class="mobile-nav-link text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-semibold" data-page="experiences">Career Snapshot</a>
+            <a href="thought-leadership.html" class="mobile-nav-link text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-semibold" data-page="thought-leadership">Thought Leadership</a>
+            <a href="contact.html" class="mobile-nav-link text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-semibold" data-page="contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <!-- Thought Leadership Grid -->
+            <div id="thought-leadership-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards will be injected here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const API_BASE_URL = 'https://itsathneed-website-api.jgrover.workers.dev';
+            const grid = document.getElementById('thought-leadership-grid');
+
+            // --- Show Skeleton Loading Cards ---
+            function showSkeletonCards(count = 6) {
+                grid.innerHTML = '';
+                for (let i = 0; i < count; i++) {
+                    const skeleton = document.createElement('div');
+                    skeleton.className = 'skeleton-card';
+                    skeleton.innerHTML = `
+                        <div class="skeleton skeleton-image"></div>
+                        <div class="p-6">
+                            <div class="skeleton skeleton-title"></div>
+                            <div class="skeleton skeleton-text"></div>
+                            <div class="skeleton skeleton-text"></div>
+                            <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                        </div>
+                    `;
+                    grid.appendChild(skeleton);
+                }
+            }
+
+            // --- Process image URL to use local assets ---
+            function processImageUrl(imageUrl) {
+                // If imageUrl starts with @assets/, replace with attached_assets/
+                if (imageUrl && imageUrl.startsWith('@assets/')) {
+                    return imageUrl.replace('@assets/', 'attached_assets/');
+                }
+                // If it's already a full URL, return as is
+                if (imageUrl && (imageUrl.startsWith('http://') || imageUrl.startsWith('https://'))) {
+                    return imageUrl;
+                }
+                // Otherwise, assume it's a filename in attached_assets
+                return `attached_assets/${imageUrl}`;
+            }
+
+            // --- Render Cards ---
+            function renderCards(data) {
+                grid.innerHTML = '';
+
+                // Sort: Featured first, then randomize the rest
+                const featured = data.filter(item => item.featured);
+                const nonFeatured = data.filter(item => !item.featured);
+
+                // Shuffle non-featured items
+                for (let i = nonFeatured.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [nonFeatured[i], nonFeatured[j]] = [nonFeatured[j], nonFeatured[i]];
+                }
+
+                const sortedData = [...featured, ...nonFeatured];
+
+                sortedData.forEach((item, index) => {
+                    const card = document.createElement('a');
+                    card.href = item.articleUrl;
+                    card.target = '_blank';
+                    card.rel = 'noopener noreferrer';
+                    card.className = 'thought-card fade-in-up';
+                    card.style.animationDelay = `${index * 0.1}s`;
+
+                    const imageUrl = processImageUrl(item.imageUrl);
+
+                    card.innerHTML = `
+                        <div class="thought-card-image-container">
+                            ${item.featured ? `
+                                <div class="featured-badge">
+                                    <img src="supergrover_transparent_large.png" alt="Featured">
+                                </div>
+                            ` : ''}
+                            <img src="${imageUrl}" alt="${item.title}" class="thought-card-image">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-3 leading-tight">${item.title}</h3>
+                            <p class="text-gray-300 mb-4 leading-relaxed flex-grow">${item.shortDescription}</p>
+                            <div class="mt-auto">
+                                <span class="read-article-link">
+                                    Read Article
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    `;
+
+                    grid.appendChild(card);
+                });
+
+                // Re-trigger fade-in animations
+                const animatedElements = document.querySelectorAll('.fade-in-up');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                animatedElements.forEach(el => observer.observe(el));
+            }
+
+            // --- Fetch Thought Leadership from API ---
+            async function fetchThoughtLeadership() {
+                showSkeletonCards();
+
+                try {
+                    const response = await fetch(`${API_BASE_URL}/api/thought-leadership`);
+
+                    if (!response.ok) {
+                        throw new Error(`API returned ${response.status}: ${response.statusText}`);
+                    }
+
+                    const data = await response.json();
+
+                    if (!data || !Array.isArray(data)) {
+                        throw new Error('Invalid data format received from API');
+                    }
+
+                    renderCards(data);
+                } catch (error) {
+                    console.error('Error fetching thought leadership:', error);
+
+                    // Show error message
+                    grid.innerHTML = `
+                        <div class="col-span-full text-center py-16">
+                            <div class="glass-card p-8 max-w-md mx-auto">
+                                <svg class="w-16 h-16 mx-auto mb-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <h3 class="text-xl font-bold text-white mb-2">Unable to load content</h3>
+                                <p class="text-gray-400 mb-4">We couldn't fetch the thought leadership articles. Please try again later.</p>
+                                <button onclick="location.reload()" class="px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-colors">
+                                    Retry
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
+            // --- Initialize ---
+            fetchThoughtLeadership();
+
+            // --- Intersection Observer for fade-in animations ---
+            const animatedElements = document.querySelectorAll('.fade-in-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => observer.observe(el));
+
+            // --- Navigation Bar Functionality ---
+            const navbar = document.getElementById('navbar');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerLines = document.querySelectorAll('.hamburger-line');
+            let navbarVisible = false;
+
+            // Scroll behavior for navbar (homepage only)
+            const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
+
+            if (isHomepage) {
+                // On homepage: show navbar on scroll
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 100 && !navbarVisible) {
+                        navbar.classList.remove('opacity-0', '-translate-y-full');
+                        navbar.classList.add('opacity-100', 'translate-y-0');
+                        navbarVisible = true;
+                    }
+                });
+            } else {
+                // On other pages: show navbar immediately
+                navbar.classList.remove('opacity-0', '-translate-y-full');
+                navbar.classList.add('opacity-100', 'translate-y-0');
+                navbarVisible = true;
+            }
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                const isOpen = !mobileMenu.classList.contains('translate-x-full');
+
+                if (isOpen) {
+                    // Close menu
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileMenu.classList.remove('translate-x-0');
+                    document.body.style.overflow = '';
+
+                    // Transform X back to hamburger
+                    hamburgerLines[0].style.transform = '';
+                    hamburgerLines[1].style.opacity = '';
+                    hamburgerLines[2].style.transform = '';
+                } else {
+                    // Open menu
+                    mobileMenu.classList.remove('translate-x-full');
+                    mobileMenu.classList.add('translate-x-0');
+                    document.body.style.overflow = 'hidden';
+
+                    // Transform hamburger to X
+                    hamburgerLines[0].style.transform = 'rotate(45deg) translateY(9px)';
+                    hamburgerLines[1].style.opacity = '0';
+                    hamburgerLines[2].style.transform = 'rotate(-45deg) translateY(-9px)';
+                }
+            });
+
+            // Close mobile menu when clicking a link
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileMenu.classList.remove('translate-x-0');
+                    document.body.style.overflow = '';
+
+                    hamburgerLines[0].style.transform = '';
+                    hamburgerLines[1].style.opacity = '';
+                    hamburgerLines[2].style.transform = '';
+                });
+            });
+
+            // Set active page link with gradient
+            const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('data-page');
+                if (linkPage === currentPage || (currentPage === 'index' && linkPage === 'home')) {
+                    link.classList.remove('text-white');
+                    link.classList.add('gradient-text');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

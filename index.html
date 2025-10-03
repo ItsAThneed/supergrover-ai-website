@@ -95,6 +95,46 @@
 </head>
 <body class="overflow-x-hidden">
 
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 opacity-0 -translate-y-full">
+        <div class="glass-card mx-4 my-4 px-6 py-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <!-- Logo and Brand (Desktop) -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="supergrover_transparent_large.png" alt="SuperGrover Logo" class="w-8 h-8">
+                    <span class="hidden md:block text-white font-semibold text-lg">Jonathan Grover</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-medium" data-page="home">Home</a>
+                    <a href="experiences.html" class="nav-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-medium" data-page="experiences">Career Snapshot</a>
+                    <a href="thought-leadership.html" class="nav-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-medium" data-page="thought-leadership">Thought Leadership</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-medium" data-page="contact">Contact</a>
+                </div>
+
+                <!-- Mobile Hamburger Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+                    <div class="hamburger-icon w-6 h-5 flex flex-col justify-between">
+                        <span class="hamburger-line block h-0.5 w-full bg-white transition-all duration-300"></span>
+                        <span class="hamburger-line block h-0.5 w-full bg-white transition-all duration-300"></span>
+                        <span class="hamburger-line block h-0.5 w-full bg-white transition-all duration-300"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-black bg-opacity-95 backdrop-blur-lg transform translate-x-full transition-transform duration-500 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="index.html" class="mobile-nav-link text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-semibold" data-page="home">Home</a>
+            <a href="experiences.html" class="mobile-nav-link text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-semibold" data-page="experiences">Career Snapshot</a>
+            <a href="thought-leadership.html" class="mobile-nav-link text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-semibold" data-page="thought-leadership">Thought Leadership</a>
+            <a href="contact.html" class="mobile-nav-link text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-300 hover:to-fuchsia-300 transition-all duration-300 font-semibold" data-page="contact">Contact</a>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="h-screen flex flex-col items-center justify-center text-center relative p-4">
         <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
@@ -247,7 +287,7 @@
             <div class="text-center mb-16 fade-in-up">
                 <h2 class="text-4xl md:text-5xl font-bold text-white">Let's keep talking.</h2>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Block 1: Connect -->
                 <a href="https://www.linkedin.com/in/connectwithjongrover" target="_blank" rel="noopener noreferrer" class="bg-gray-900 rounded-2xl p-8 text-left relative block hover:bg-gray-800 transition-colors fade-in-up">
                     <div class="pb-16">
@@ -270,26 +310,15 @@
                         <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                     </div>
                 </a>
-                <!-- Block 3: Thought leadership -->
+                <!-- Block 3: Product studio -->
                 <a href="https://itsathneed.com" target="_blank" rel="noopener noreferrer" class="bg-gray-900 rounded-2xl p-8 text-left relative block hover:bg-gray-800 transition-colors fade-in-up">
                     <div class="pb-16">
                         <svg class="w-8 h-8 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        <h3 class="text-2xl font-bold text-white mb-2">Thought leadership.</h3>
-                        <p class="text-gray-400">Explore my thought leadership and product exploration pursuits.</p>
+                        <h3 class="text-2xl font-bold text-white mb-2">Product studio.</h3>
+                        <p class="text-gray-400">Discover some of my product exploration pursuits.</p>
                     </div>
                     <div class="absolute bottom-8 right-8 bg-white rounded-full p-2">
                         <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
-                    </div>
-                </a>
-                <!-- Block 4: Career Snapshot -->
-                <a href="experiences.html" class="bg-gray-900 rounded-2xl p-8 text-left relative block hover:bg-gray-800 transition-colors fade-in-up">
-                    <div class="pb-16">
-                        <svg class="w-8 h-8 mb-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                        <h3 class="text-2xl font-bold text-white mb-2">Career snapshot.</h3>
-                        <p class="text-gray-400">A timeline view of my journey in becoming an executive leader.</p>
-                    </div>
-                    <div class="absolute bottom-8 right-8 bg-white rounded-full p-2">
-                        <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </div>
                 </a>
             </div>
@@ -460,7 +489,7 @@
 
             // Hero video functionality
             const heroVideo = document.getElementById('herovideo');
-            
+
             // Ensure video plays on mobile
             if (heroVideo) {
                 heroVideo.addEventListener('loadeddata', () => {
@@ -469,6 +498,84 @@
                     });
                 });
             }
+
+            // --- Navigation Bar Functionality ---
+            const navbar = document.getElementById('navbar');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerLines = document.querySelectorAll('.hamburger-line');
+            let navbarVisible = false;
+
+            // Scroll behavior for navbar (homepage only)
+            const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
+
+            if (isHomepage) {
+                // On homepage: show navbar on scroll
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 100 && !navbarVisible) {
+                        navbar.classList.remove('opacity-0', '-translate-y-full');
+                        navbar.classList.add('opacity-100', 'translate-y-0');
+                        navbarVisible = true;
+                    }
+                });
+            } else {
+                // On other pages: show navbar immediately
+                navbar.classList.remove('opacity-0', '-translate-y-full');
+                navbar.classList.add('opacity-100', 'translate-y-0');
+                navbarVisible = true;
+            }
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                const isOpen = !mobileMenu.classList.contains('translate-x-full');
+
+                if (isOpen) {
+                    // Close menu
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileMenu.classList.remove('translate-x-0');
+                    document.body.style.overflow = '';
+
+                    // Transform X back to hamburger
+                    hamburgerLines[0].style.transform = '';
+                    hamburgerLines[1].style.opacity = '';
+                    hamburgerLines[2].style.transform = '';
+                } else {
+                    // Open menu
+                    mobileMenu.classList.remove('translate-x-full');
+                    mobileMenu.classList.add('translate-x-0');
+                    document.body.style.overflow = 'hidden';
+
+                    // Transform hamburger to X
+                    hamburgerLines[0].style.transform = 'rotate(45deg) translateY(9px)';
+                    hamburgerLines[1].style.opacity = '0';
+                    hamburgerLines[2].style.transform = 'rotate(-45deg) translateY(-9px)';
+                }
+            });
+
+            // Close mobile menu when clicking a link
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileMenu.classList.remove('translate-x-0');
+                    document.body.style.overflow = '';
+
+                    hamburgerLines[0].style.transform = '';
+                    hamburgerLines[1].style.opacity = '';
+                    hamburgerLines[2].style.transform = '';
+                });
+            });
+
+            // Set active page link with gradient
+            const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('data-page');
+                if (linkPage === currentPage || (currentPage === 'index' && linkPage === 'home')) {
+                    link.classList.remove('text-white');
+                    link.classList.add('gradient-text');
+                }
+            });
         });
     </script>
 
